@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Social Organization</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #e0f7e9, #f9f9f9); /* Green-to-white gradient background */
+            display: grid;
+            place-items: center;
+            height: 100vh;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+        }
+  /* Header Styling */
+        header {
+            background: #f6fcf8; /* Matching the navbar color to the background */
+            padding: 1em 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+            position: relative;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        /* Logo Styling */
+        .logo img {
+            height: 50px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Navbar Styling */
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5em;
+            margin: 0;
+        }
+
+        nav ul li a {
+            padding: 0.5em;
+            text-decoration: none;
+            color: #0f0e0e; /* White text for contrast */
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #d9f2d9; /* Light green on hover */
+        }
+
+        /* Mobile Navigation */
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            color: #0d0c0c;
+            cursor: pointer;
+            
+        }
+
+        /* Mobile Navigation */
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Hide navbar on small screens and show menu toggle */
+@media (max-width: 768px) {
+    /* Move the logo to the right side */
+    .header-content {
+        justify-content: flex-end;
+    }
+
+    /* Position the hamburger menu (three lines) on the left */
+    .menu-toggle {
+        position: absolute;
+        left: 10px;
+        top: 15px; /* Adjust this value to align it vertically */
+        display: block;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        background-color: #ffffff;
+        position: absolute;
+        top: 70px;
+        width: 100%;
+        left: 0;
+        padding: 1em 0;
+        border-top: 1px solid #ddd;
+    }
+
+    nav ul li {
+        text-align: center;
+        margin: 0.5em 0;
+    }
+
+    nav.active ul {
+        display: flex;
+    }
+}
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 3em 2em;
+            background: #2c683a;
+            color: #fff;
+            border-radius: 8px;
+            max-width: 1000px;
+            margin: 2em auto;
+        }
+
+        .hero h1 {
+            font-size: 2.2em;
+            margin-bottom: 0.5em;
+        }
+
+        .hero p {
+            font-size: 1.1em;
+            max-width: 800px;
+            margin: auto;
+            opacity: 0.9;
+        }
+
+        /* Contact Form Section */
+        .contact-section {
+            display: grid;
+            grid-template-columns: 1fr; /* 1 column by default */
+            gap: 2em;
+            padding: 4em 2em;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        @media (min-width: 768px) {
+            .contact-section {
+                grid-template-columns: 1fr 1fr; /* 2 columns for larger screens */
+            }
+        }
+
+        /* Contact Form */
+        .contact-form, .contact-info {
+            background: #ffffff;
+            padding: 2em;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #ddd;
+        }
+
+        .contact-form:hover, .contact-info:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-form h2, .contact-info h2 {
+            font-size: 1.8em;
+            color: #2c683a;
+            margin-bottom: 1em;
+        }
+
+        /* Form Styling */
+        form label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 0.5em;
+            color: #555;
+        }
+
+        form input, form textarea {
+            width: 100%;
+            padding: 0.8em;
+            margin-bottom: 1em;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            transition: border-color 0.3s ease;
+        }
+
+        form input:focus, form textarea:focus {
+            border-color: #2c683a;
+            outline: none;
+        }
+
+        button {
+            display: inline-block;
+            padding: 0.8em 2em;
+            font-size: 1em;
+            color: #fff;
+            background-color: #2c683a;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #205d2d;
+        }
+
+        /* Contact Information */
+.social-links a {
+    margin-right: 1em;
+    text-decoration: none;
+    color: #2c683a; /* Default green color */
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #205d2d; /* Darker green on hover */
+}
+
+/* Specific Colors for Each Social Media Link */
+.social-links a[href*="facebook.com"]:hover {
+    color: #4267B2; /* Facebook blue */
+}
+
+.social-links a[href*="instagram.com"]:hover {
+    color: #E4405F; /* Instagram pink */
+}
+    </style>
+</head>
+<body>
+    <!-- Main Container -->
+    <div>
+        <!-- Navigation -->
+        <header>
+            <div class="header-content">
+                <!-- Logo -->
+                <a href="index.html" class="logo" aria-label="Home">
+                    <img src="logo.png" alt="Organization Logo" />
+                </a>
+
+                <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+                <!-- Navbar Links -->
+                <nav id="navbar">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="donation.html">Donation</a></li>
+                        <li><a href="news.html">Updates</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Contact Us</h1>
+            <p>We'd love to hear from you! Reach out to us with any questions or inquiries.</p>
+        </section>
+
+         <!-- Contact Form -->
+<div class="contact-form">
+    <h2>Send Us a Message</h2>
+    <form id="contactForm" onsubmit="handleFormSubmit(event)">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit">Send Message</button>
+    </form>
+    <p id="thankYouMessage" style="display:none; color: green; margin-top: 1em;">
+        Thank you for reaching out! We'll get back to you soon.
+    </p>
+</div>
+            <!-- Contact Information Section -->
+            <div class="contact-info">
+                <h2>Contact Information</h2>
+                <p><strong>Address:</strong> 123 Community Street, Hometown, Country</p>
+                <p><strong>Phone:</strong> +123-456-7890</p>
+                <p><strong>Email:</strong> maliryouth196@gmail.com</p>
+
+                <!-- Social Media Links -->
+                <div class="social-links">
+                    <a href="https://www.facebook.com/profile.php?id=100085321118042&mibextid=ZbWKwL" target="_blank">Facebook</a>
+               
+                    <a href="https://www.instagram.com/maliryouth?igsh=MXU1OWF2NDl3cWVodQ==" target="_blank">Instagram</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('navbar').classList.toggle('active');
+        }
+    
+ // Function to handle form submission
+    function handleFormSubmit(event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        // Get form elements
+        const form = document.getElementById('contactForm');
+        const thankYouMessage = document.getElementById('thankYouMessage');
+
+        // Show thank you message
+        thankYouMessage.style.display = 'block';
+
+        // Clear the form inputs
+        form.reset();
+
+        // Hide the thank you message after 5 seconds (optional)
+        setTimeout(() => {
+            thankYouMessage.style.display = 'none';
+        }, 5000);
+    }
+</script>
+</body>
+</html>
